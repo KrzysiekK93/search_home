@@ -14,7 +14,7 @@ export function loadAdvertsSuccess(adverts: types.IAdvertDatas): types.LoadAdver
     };
   }
 
-export function loadAdvertsError(error: any): types.LoadAdvertError {
+export function loadAdvertsError(error: Error): types.LoadAdvertError {
     return { 
         type: types.LOAD_ADVERTS_ERROR, 
         error
@@ -29,7 +29,7 @@ export function loadAdverts(adverts: types.IAdvertDatas) {
             dispatch(loadAdvertsSuccess(response.data));
             return response.data;
         })
-        .catch((error: any) => {
+        .catch((error: Error) => {
             dispatch(loadAdvertsError(error));
         })
     }

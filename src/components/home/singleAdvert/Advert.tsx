@@ -1,18 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import { loadAdverts } from '../../../redux/actions/advertsAction';
-import { getAdverts, getAdvertsPending, getAdvertsError } from '../../../redux/reducers/advertsReducer';
-import IAdvertDatas from './interface';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
-import Modal from '@material-ui/core/Modal';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { CardActionArea, CardActions, CardContent, CardMedia, Typography, Grid, Modal, Card } from '@material-ui/core/';
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -46,8 +35,6 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const Advert = (props: any) => {
-console.log("props", props);
-  // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = useState(getModalStyle);
   const [open, setOpen] = useState(false);
 
@@ -58,11 +45,6 @@ console.log("props", props);
   const handleClose = () => {
     setOpen(false);
   };
-
-  useEffect(() => {
-    props.loadAdverts();
-}, [props.advert]);
-
 
     const classes = useStyles();
     const renderData = props.adverts.map((item: any, index:number) => {
@@ -115,19 +97,4 @@ console.log("props", props);
     );
 }
 
-function mapStateToProps(state: any){
-    return {
-        error: getAdvertsPending(state),
-        adverts: getAdverts(state),
-        pending: getAdvertsError(state)
-    }
-}
-
-const mapDispatchToProps = {
-    loadAdverts
-};
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Advert);
+export default Advert;
