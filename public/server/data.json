@@ -1,0 +1,32 @@
+[
+    {
+        "title": "New flat",
+        "description": "New flat for rent",
+        "id": 1,
+        "location" : {
+            "city": "Kraków", 
+            "street": "Lubańska",
+            "post_code": "98-423"
+        }
+    },
+    {
+        "title": "New apartment",
+        "description": "New apartment for rent",
+        "id": 2,
+        "location" : {
+            "city": "Kraków", 
+            "street": "Mogilska",
+            "post_code": "23-435"
+        }
+    },
+    {
+        "title": "New flat old town",
+        "description": "New flat for rent old Town",
+        "id": 3,
+        "location" : {
+            "city": "Kraków", 
+            "street": "Kalwaryjska",
+            "post_code": "23-234"
+        }
+    }
+]
